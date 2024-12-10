@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイチケット</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f6f8fc 0%, #e9eef8 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .ticket-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ticket {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ticket::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #007AFF, #00C6FF);
+        }
+
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .ticket-type {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ticket-type::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #007AFF;
+            border-radius: 50%;
+        }
+
+        .ticket-status {
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .status-valid {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-used {
+            background-color: #f5f5f5;
+            color: #757575;
+        }
+
+        .status-expired {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .ticket-details {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eef0f2;
+        }
+
+        .ticket-date {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .ticket-info {
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .ticket-qr {
+            text-align: center;
+            padding: 15px;
+            border: 2px dashed #e0e0e0;
+            border-radius: 12px;
+            margin: 15px 0;
+            background: #fafafa;
+        }
+
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .ticket-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-button:hover {
+            transform: translateY(-1px);
+        }
+
+        .action-button.secondary {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .action-button.secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        .action-button.primary {
+            background: linear-gradient(90deg, #007AFF, #00C6FF);
+            color: white;
+        }
+
+        .action-button.primary:hover {
+            box-shadow: 0 4px 12px rgba(0,122,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>マイチケット</h1>
+        <p>WebViewで表示</p>
+    </div>
+
+    <div class="ticket-container">
+        <!-- 入場チケット -->
+        <div class="ticket">
+            <div class="ticket-header">
+                <span class="ticket-type">入場チケット</span>
+                <span class="ticket-status status-valid">有効</span>
+            </div>
+            <div class="ticket-details">
+                <div class="ticket-date">2024年12月25日(水) 使用可能</div>
+                <div class="ticket-info">1デーパスポート</div>
+            </div>
+            <div class="ticket-qr">
+                <div class="qr-code">
+                    <img src="https://mikio-demo.eventos.tokyo/file/wysiwyg/858/file-16d24d2e-597c-4894-8cf0-8541cdff1677.png" alt="QRコード" />
+                </div>
+            </div>
+            <div class="ticket-actions">
+                <button class="action-button secondary">詳細</button>
+                <button class="action-button primary">使用する</button>
+            </div>
+        </div>
+
+        <!-- 整理券チケット -->
+        <div class="ticket">
+            <div class="ticket-header">
+                <span class="ticket-type">整理券</span>
+                <span class="ticket-status status-valid">使用可能</span>
+            </div>
+            <div class="ticket-details">
+                <div class="ticket-date">本日 14:00-15:00</div>
+                <div class="ticket-info">スプラッシュマウンテン</div>
+            </div>
+            <div class="ticket-qr">
+                <div class="qr-code">
+                    <img src="https://mikio-demo.eventos.tokyo/file/wysiwyg/858/file-16d24d2e-597c-4894-8cf0-8541cdff1677.png" alt="QRコード" />
+                </div>
+            </div>
+            <div class="ticket-actions">
+                <button class="action-button secondary">キャンセル</button>
+                <button class="action-button primary">マップで確認</button>
+            </div>
+        </div>
+
+        <!-- 使用済みチケット -->
+        <div class="ticket">
+            <div class="ticket-header">
+                <span class="ticket-type">入場チケット</span>
+                <span class="ticket-status status-used">使用済み</span>
+            </div>
+            <div class="ticket-details">
+                <div class="ticket-date">2024年12月10日(火) 使用済み</div>
+                <div class="ticket-info">1デーパスポート</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
