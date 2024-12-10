@@ -1,0 +1,98 @@
+<meta charset="UTF-8" />&nbsp;<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+/>
+<title>2列メニュー</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-touch-callout: none; /* iOSでの長押しメニューを無効化 */
+    -webkit-user-select: none; /* テキスト選択を無効化 */
+    user-select: none; /* テキスト選択を無効化 */
+  }
+
+  body {
+    background-color: #f5f5f5;
+  }
+
+  .menu-container {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px 15px;
+  }
+
+  .menu-row {
+    display: flex;
+    justify-content: space-around;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 36px;
+  }
+
+  .menu-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.33%;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 4px;
+    object-fit: contain;
+    pointer-events: none; /* 画像への直接的な操作を無効化 */
+  }
+
+  .menu-text {
+    font-size: 12px;
+    color: #333;
+  }
+
+  .menu-item:hover {
+    opacity: 0.7;
+  }
+</style>
+<div class="menu-container">
+  <!-- 1列目 -->
+  <div class="menu-row">
+    <div class="menu-item">
+      <img
+        src="https://mikio-demo.eventos.tokyo/file/wysiwyg/858/file-419cd552-3a2c-4406-a298-52d8b64349ab.png"
+        alt="メニュー1"
+        class="menu-icon fr-fil fr-dib"
+      />
+      <span class="menu-text">チケット</span>
+    </div>
+    <div class="menu-item">
+      <img src="https://mikio-demo.eventos.tokyo/file/wysiwyg/858/file-765098f8-6265-4c3d-9330-11d3e8147fdf.png" alt="メニュー2" class="menu-icon fr-fil fr-dib" />
+      <span class="menu-text">待ち時間</span>
+    </div>
+    <div class="menu-item">
+      <img src="https://mikio-demo.eventos.tokyo/file/wysiwyg/858/file-15a14f7c-eaff-4f50-93c2-82277f992046.png" alt="メニュー3" class="menu-icon fr-fil fr-dib" />
+      <span class="menu-text">レストラン</span>
+    </div>
+  </div>
+  <!-- 2列目 -->
+  <div class="menu-row">
+    <div class="menu-item">
+      <img src="image4.png" alt="メニュー4" class="menu-icon fr-fil fr-dib" />
+      <span class="menu-text">メニュー4</span>
+    </div>
+    <div class="menu-item">
+      <img src="image5.png" alt="メニュー5" class="menu-icon fr-fil fr-dib" />
+      <span class="menu-text">メニュー5</span>
+    </div>
+    <div class="menu-item">
+      <img src="image6.png" alt="メニュー6" class="menu-icon fr-fil fr-dib" />
+      <span class="menu-text">メニュー6</span>
+    </div>
+  </div>
+</div>
